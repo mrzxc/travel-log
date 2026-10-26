@@ -1,0 +1,17 @@
+node_modules/
+dist/
+release/
+*.log
+.pnpm-store/
+.cache/
+.test-data/
+artifacts/
+__pycache__/
+
+# Local travel exports and private data
+output/
+*.travel
+*.travel.bak
+.env
+.env.*
+!.env.example

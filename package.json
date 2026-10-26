@@ -1,0 +1,120 @@
+{
+  "name": "travel-atlas",
+  "version": "0.2.15",
+  "private": true,
+  "description": "本地旅行素材管理与地图演示",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "desktop": "electron .",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "dist": "pnpm build && electron-builder --win nsis",
+    "dist:mac": "npm run build && electron-builder --mac dmg zip",
+    "dist:mac:dir": "npm run build && electron-builder --mac --dir",
+    "format": "prettier --write src electron scripts *.json *.ts",
+    "test:ui": "node scripts/smoke.cjs",
+    "test:desktop": "node scripts/desktop-smoke.cjs",
+    "test:optimizations": "node scripts/optimization-smoke.cjs",
+    "test:heic": "node scripts/heic-smoke.cjs",
+    "test:project-transfer": "node scripts/project-transfer-smoke.cjs",
+    "test:map-editor": "node scripts/map-editor-smoke.cjs",
+    "test:curved-routes": "node scripts/run-curved-route-smoke.cjs",
+    "test:route-selection": "node scripts/run-route-selection-smoke.cjs",
+    "test:playback-memory": "node scripts/run-playback-memory-smoke.cjs",
+    "test:duration-layout": "node scripts/run-duration-layout-smoke.cjs",
+    "test:tree-media-zoom": "node scripts/run-tree-media-zoom-smoke.cjs",
+    "test:presentation-polish": "node scripts/run-presentation-polish-smoke.cjs",
+    "test:presentation-filter": "node scripts/run-presentation-filter-smoke.cjs"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "exiftool-vendored": "^29.0.0",
+    "ffmpeg-static": "^5.2.0",
+    "ffprobe-static": "^3.1.0",
+    "heic-convert": "^2.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "yauzl": "3.2.0",
+    "yazl": "3.3.1"
+  },
+  "optionalDependencies": {
+    "@ffprobe-installer/darwin-arm64": "5.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "electron": "^40.0.0",
+    "electron-builder": "^26.0.0",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0",
+    "vitest": "^3.0.0"
+  },
+  "build": {
+    "appId": "local.travel.atlas",
+    "productName": "旅行图志",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json",
+      "!node_modules/ffprobe-static/bin/linux/**",
+      "!node_modules/ffprobe-static/bin/win32/ia32/**"
+    ],
+    "asarUnpack": [
+      "node_modules/ffmpeg-static/**",
+      "node_modules/ffprobe-static/**",
+      "node_modules/@ffprobe-installer/**",
+      "node_modules/exiftool-vendored*/**"
+    ],
+    "fileAssociations": [
+      {
+        "ext": "travel",
+        "name": "旅行图志项目"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false,
+      "files": [
+        "dist/**/*",
+        "electron/**/*",
+        "package.json",
+        "!node_modules/ffprobe-static/bin/darwin/**",
+        "!node_modules/exiftool-vendored.pl/**"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.photography",
+      "artifactName": "${productName}-${version}-mac-${arch}.${ext}",
+      "identity": "-",
+      "hardenedRuntime": false,
+      "files": [
+        "dist/**/*",
+        "electron/**/*",
+        "package.json",
+        "!node_modules/ffprobe-static/bin/win32/**",
+        "!node_modules/exiftool-vendored.exe/**"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "author": "Travel Atlas",
+  "license": "UNLICENSED"
+}

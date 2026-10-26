@@ -1,0 +1,4 @@
+interface:
+  display_name: "行程地图生成"
+  short_description: "从文档或分享行程提取地点，逐轮确认地图分层并生成演示地图"
+  default_prompt: "使用 $itinerary-maps 读取我的行程，逐轮确认地图分层和演示入口，然后生成适合旅行图志使用的地图。"

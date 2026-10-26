@@ -1,0 +1,14 @@
+packages:
+  - "."
+nodeLinker: hoisted
+storeDir: .pnpm-store
+onlyBuiltDependencies:
+  - "@ffprobe-installer/darwin-arm64"
+  - electron
+  - electron-winstaller
+  - esbuild
+  - ffmpeg-static
+allowBuilds:
+  electron: set this to true or false
+  electron-winstaller: set this to true or false
+  ffmpeg-static: set this to true or false

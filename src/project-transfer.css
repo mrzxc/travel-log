@@ -1,0 +1,176 @@
+.transfer-backdrop {
+  z-index: 180;
+}
+.transfer-dialog {
+  width: min(900px, 94vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8faf4;
+  border: 1px solid #cad4c0;
+  border-radius: 16px;
+  box-shadow: 0 20px 100px #10221455;
+  color: #324b38;
+  outline: none;
+}
+.transfer-dialog > header,
+.transfer-dialog > footer {
+  padding: 20px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.transfer-dialog > header {
+  border-bottom: 1px solid #dce3d5;
+}
+.transfer-dialog h2 {
+  margin: 5px 0 0;
+  font-size: 23px;
+}
+.transfer-dialog > footer {
+  justify-content: flex-end;
+  border-top: 1px solid #dce3d5;
+}
+.transfer-content {
+  overflow-y: auto;
+  padding: 20px 26px;
+  min-height: 0;
+}
+.transfer-content p {
+  line-height: 1.65;
+  font-size: 13px;
+}
+.transfer-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+  background: #eef3e8;
+  border-radius: 10px;
+}
+.transfer-option input {
+  margin-top: 4px;
+  accent-color: #4d7653;
+}
+.transfer-option small {
+  display: block;
+  margin-top: 6px;
+  color: #6c7d64;
+}
+.transfer-path-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+.transfer-path-summary strong {
+  font-size: 14px;
+}
+.transfer-path-summary p,
+.transfer-help {
+  color: #6c7d64;
+}
+.transfer-folder {
+  padding: 16px 0;
+  border-bottom: 1px solid #dce3d5;
+}
+.transfer-source {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.transfer-source code {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.transfer-source > span {
+  font-size: 12px;
+  white-space: nowrap;
+  color: #6b7e60;
+}
+.transfer-folder label > span {
+  display: block;
+  font-size: 11px;
+  color: #6c7d64;
+  margin-bottom: 6px;
+}
+.transfer-target {
+  display: flex;
+  gap: 8px;
+}
+.transfer-target input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #bdcbb3;
+  background: #fff;
+  padding: 10px;
+  border-radius: 7px;
+  color: #324b38;
+  font-size: 13px;
+}
+.transfer-target button {
+  white-space: nowrap;
+}
+.transfer-folder > small {
+  display: block;
+  margin-top: 8px;
+}
+.transfer-folder details {
+  margin-top: 8px;
+  font-size: 12px;
+}
+.transfer-folder ul {
+  max-height: 160px;
+  overflow: auto;
+  padding-left: 20px;
+}
+.transfer-folder li {
+  margin: 5px 0;
+  overflow-wrap: anywhere;
+}
+.transfer-validation {
+  margin: 18px 0;
+}
+.transfer-validation small {
+  display: block;
+  margin-top: 5px;
+  color: #6c7d64;
+}
+.transfer-warning {
+  color: #95601c;
+}
+.transfer-found {
+  color: #4b744e;
+}
+.transfer-error {
+  color: #ad3e31;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.transfer-destination code {
+  display: block;
+  font-size: 12px;
+  color: #6c7d64;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .transfer-dialog > header,
+  .transfer-dialog > footer,
+  .transfer-content {
+    padding: 16px;
+  }
+  .transfer-path-summary {
+    flex-wrap: wrap;
+  }
+  .transfer-target {
+    flex-wrap: wrap;
+  }
+  .transfer-target input {
+    flex-basis: 100%;
+  }
+}
